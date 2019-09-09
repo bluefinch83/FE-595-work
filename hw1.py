@@ -17,11 +17,16 @@ X = np.linspace(0, 2*np.pi, points)
 S = [np.sin(x) for x in X]
 C = [np.cos(x) for x in X]
 
+# adding Tangent with cut-off limit on y-axis
+T = [min(4, max(-4, np.tan(x))) for x in X] 
+
 
 '''This part actually makes the graph.'''
 plt.subplot(221)
 plt.plot(X, S, 'b-.', lw=2.5, label='Sine')
 plt.plot(X, C, 'r', lw=2.5, label='Cosine')
+plt.plot(X, T, 'g--', lw = 2.5, label = 'Tangent')
+
 plt.grid(True)
 plt.legend(loc=0)
 plt.show()
